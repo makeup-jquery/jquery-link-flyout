@@ -1,0 +1,7 @@
+{
+    "dependencies":[
+        {"require-run": "jquery"},
+        {"require-run": "@ebay/jquery-mouse-exit"},
+        {"require-run": "@ebay/jquery-button-flyout"}
+    ]
+}
