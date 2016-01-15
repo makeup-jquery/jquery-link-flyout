@@ -1,7 +1,7 @@
 /**
 * @name @ebay/jquery-link-flyout
 * @function $.fn.linkFlyout
-* @version 0.1.2
+* @version 0.1.3
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @requires @ebay/jquery-mouse-exit
 * @requires @ebay/jquery-button-flyout
