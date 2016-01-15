@@ -1,7 +1,7 @@
 /**
 * @name @ebay/jquery-link-flyout
 * @function $.fn.linkFlyout
-* @version 0.1.3
+* @version 0.2.0
 * @author Ian McBurnie <ianmcburnie@hotmail.com>
 * @requires @ebay/jquery-mouse-exit
 * @requires @ebay/jquery-button-flyout
@@ -29,14 +29,14 @@
 
             $this.buttonFlyout(options);
 
-            // setup mouseexit custom event plugin
+            // setup mouseExit custom event plugin
             $overlay.mouseExit();
 
             // setup mouse hover/out behaviour
             $link.on('mouseenter', function onLinkMouseEnter(e) {
-                $this.trigger('show.buttonFlyout');
-                $overlay.one('mouseexit', function onOverlayMouseExit() {
-                    $this.trigger('hide.buttonFlyout');
+                $this.trigger('showButtonFlyout');
+                $overlay.one('mouseExit', function onOverlayMouseExit() {
+                    $this.trigger('hideButtonFlyout');
                 });
             });
 

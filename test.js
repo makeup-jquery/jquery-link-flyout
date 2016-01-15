@@ -32,21 +32,21 @@ describe("jquery.linkflyout.js", function() {
         expect($link.next().prop('tagName').toLowerCase()).toBe('button');
     });
 
-    it("should trigger show.buttonFlyout on mouseenter", function(done) {
+    it("should trigger showButtonFlyout on mouseenter", function(done) {
         // async assert
-        $widget.on('show.buttonFlyout', done);
+        $widget.on('showButtonFlyout', done);
 
         $widget.linkFlyout();
         $link.trigger('mouseenter');
     });
 
-    it("should trigger hide.buttonFlyout on mouseexit", function(done) {
+    it("should trigger hideButtonFlyout on mouseExit", function(done) {
         // async assert
-        $widget.on('hide.buttonFlyout', done);
+        $widget.on('hideButtonFlyout', done);
 
         $widget.linkFlyout();
         $link.trigger('mouseenter');
-        $overlay.trigger('mouseexit');
+        $overlay.trigger('mouseExit');
     });
 
 });
