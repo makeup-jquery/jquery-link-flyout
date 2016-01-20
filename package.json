@@ -44,11 +44,11 @@
     "phantomjs": "^1.9.18",
     "rimraf": "^2.4.4",
     "@ebay/jquery-mouse-exit": "~0.1.0",
-    "@ebay/jquery-button-flyout": "~0.2.0"
+    "@ebay/jquery-button-flyout": "~0.4.0"
   },
   "peerDependencies": {
     "jquery": ">=1.11 < 3",
     "@ebay/jquery-mouse-exit": "~0.1.0",
-    "@ebay/jquery-button-flyout": "~0.2.0"
+    "@ebay/jquery-button-flyout": "~0.4.0"
   }
 }
