@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Demo: @ebay/jquery-link-flyout</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style>
+            .flyout {
+                position: relative;
+            }
+            .flyout > div {
+                background-color: LightYellow;
+                border: 1px solid #eee;
+                display: none;
+                padding: 1rem;
+                position: fixed;
+                z-index: 1;
+            }
+            .flyout > div[aria-hidden=false] {
+                display: block;
+            }
+            .flyout > a + button {
+                position: absolute;
+                clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+                clip: rect(1px, 1px, 1px, 1px);
+                padding: 0.2em 0.3em;
+                border: 0;
+                height: 1px;
+                width: 1px;
+                overflow: hidden;
+            }
+            .flyout > a + button:focus {
+                clip: auto;
+                height: auto;
+                left: 0;
+                width:auto;
+                bottom: -2.5em;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div role="main">
+            <h1>Demo: @ebay/jquery-link-flyout</h1>
+            <p>Tab to hidden button after each link, then activate button to view flyout.</p>
+
+            <span class="flyout">
+                <a href="#">Toggle Flyout 1</a>
+                <div>
+                    <h3>Any kind of HTML control can go inside of a flyout...</h3>
+                    <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
+                    <p>A button: <button>Click Me</button></p>
+                    <p>An input: <input type="text" aria-label="Dummy textbox"></p>
+                    <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+                    <p><strong>...but avoid ARIA widgets such as tabs and carousels!</strong></p>
+                </div>
+            </span>
+            <span class="flyout">
+                <a href="#">Toggle Flyout 2</a>
+                <div>
+                    <h3>Any kind of HTML control can go inside of a flyout...</h3>
+                    <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
+                    <p>A button: <button>Click Me</button></p>
+                    <p>An input: <input type="text" aria-label="Dummy textbox"></p>
+                    <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+                    <p><strong>...but avoid ARIA widgets such as tabs and carousels!</strong></p>
+                </div>
+            </span>
+        </div>
+
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/@ebay/jquery-next-id/jquery.nextid.js"></script>
+        <script src="node_modules/@ebay/jquery-common-keydown/jquery.commonkeydown.js"></script>
+        <script src="node_modules/@ebay/jquery-focusable/jquery.focusable.js"></script>
+        <script src="node_modules/@ebay/jquery-focus-exit/jquery.focusexit.js"></script>
+        <script src="node_modules/@ebay/jquery-mouse-exit/jquery.mouseexit.js"></script>
+        <script src="node_modules/@ebay/jquery-button-flyout/jquery.buttonflyout.js"></script>
+        <script src="jquery.linkflyout.js"></script>
+        <script>
+            $(function() {
+                $('.flyout').linkFlyout();
+            });
+        </script>
+    </body>
+</html>
