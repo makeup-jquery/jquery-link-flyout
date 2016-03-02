@@ -1,16 +1,19 @@
 /**
-* @name @ebay/jquery-link-flyout
-* @function $.fn.linkFlyout
-* @version 0.3.0
-* @author Ian McBurnie <ianmcburnie@hotmail.com>
-* @requires @ebay/jquery-mouse-exit
-* @requires @ebay/jquery-button-flyout
-* @desc converts a link + div, into a link + hidden button + flyout and handles
-* all hide/show behaviour.
-* @todo need a plugin to update y-coordinate when page scrolls.
-*/
+ * @file converts a link + div, into a link + hidden button + flyout and handles all hide/show behaviour.
+ * @author Ian McBurnie <ianmcburnie@hotmail.com>
+ * @version 0.3.1
+ * @requires jquery
+ * @requires @ebay/jquery-mouse-exit
+ * @requires @ebay/jquery-button-flyout
+ */
+
 (function ($, window, document, undefined) {
 
+    /**
+    * @method "jQuery.fn.linkFlyout"
+    * @param {Object} [options]
+    * @return {Object} chainable jQuery class
+    */
     $.fn.linkFlyout = function linkFlyout(options) {
 
         options = options || {};
@@ -34,9 +37,9 @@
 
             // setup mouse hover/out behaviour
             $link.on('mouseenter', function onLinkMouseEnter(e) {
-                $this.trigger('showButtonFlyout');
+                $this.trigger('openButtonFlyout');
                 $overlay.one('mouseExit', function onOverlayMouseExit() {
-                    $this.trigger('hideButtonFlyout');
+                    $this.trigger('closeButtonFlyout');
                 });
             });
 
@@ -44,3 +47,9 @@
     };
 
 }(jQuery, window, document));
+
+/**
+* The jQuery plugin namespace.
+* @external "jQuery.fn"
+* @see {@link http://learn.jquery.com/plugins/|jQuery Plugins}
+*/

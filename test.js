@@ -1,8 +1,8 @@
 describe("jquery.linkflyout.js", function() {
 
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 500;
 
-    var dummyEventTimeoutInterval = jasmine.DEFAULT_TIMEOUT_INTERVAL - 500;
+    var dummyEventTimeoutInterval = jasmine.DEFAULT_TIMEOUT_INTERVAL / 2;
 
     var dom = '<div class="flyout">'
                 + '<a href="http://www.ebay.com">Notifications</a>'
@@ -32,17 +32,17 @@ describe("jquery.linkflyout.js", function() {
         expect($link.next().prop('tagName').toLowerCase()).toBe('button');
     });
 
-    it("should trigger showButtonFlyout on mouseenter", function(done) {
+    it("should trigger openButtonFlyout on mouseenter", function(done) {
         // async assert
-        $widget.on('showButtonFlyout', done);
+        $widget.on('openButtonFlyout', done);
 
         $widget.linkFlyout();
         $link.trigger('mouseenter');
     });
 
-    it("should trigger hideButtonFlyout on mouseExit", function(done) {
+    it("should trigger closeButtonFlyout on mouseExit", function(done) {
         // async assert
-        $widget.on('hideButtonFlyout', done);
+        $widget.on('closeButtonFlyout', done);
 
         $widget.linkFlyout();
         $link.trigger('mouseenter');

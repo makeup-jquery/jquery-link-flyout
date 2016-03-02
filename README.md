@@ -8,7 +8,7 @@
 jQuery collection plugin that converts an anchor + div into an anchor + hidden focus button + overlay, and handles all hide/show behaviour.
 
 ```js
-$('div.flyout--link').linkFlyout();
+$('.flyout--link').linkFlyout();
 ```
 
 ## Experimental
@@ -18,7 +18,7 @@ This plugin is still in an experimental state, until it reaches v1.0.0 you must 
 ## Install
 
 ```js
-npm install @ebay/jquery-link-flyout --save
+npm install @ebay/jquery-link-flyout
 ```
 
 ## Example
@@ -26,26 +26,26 @@ npm install @ebay/jquery-link-flyout --save
 Markup before plugin:
 
 ```html
-<div class="flyout flyout--link">
+<span class="flyout flyout--link">
     <a href="http://www.ebay.com">Notifications</a>
     <div>
         <h2>Flyout Title</h2>
         <p>Flyout Content</p>
     </div>
-</div>
+</span>
 ```
 
 Markup after plugin:
 
 ```html
-<div class="flyout flyout--link" id="linkflyout-0">
+<span class="flyout flyout--link" id="linkflyout-0">
     <a href="http://www.ebay.com">Notifications</a>
     <button type="button" aria-controls="linkflyout-0-overlay" aria-expanded="false">Notifications</button>
     <div id="linkflyout-0-overlay">
         <h2>Flyout Title</h2>
         <p>Flyout Content</p>
     </div>
-</div>
+</span>
 ```
 
 ## Dependencies
@@ -67,7 +67,7 @@ Execute `npm run` to view all available CLI scripts:
 * `npm run build` cleans, lints, tests and minifies (called on `npm prepublish` hook)
 * `npm run clean` deletes all generated test reports and coverage files
 
-## Reports
+## Test Reports
 
 Each test run will generate the following reports:
 
