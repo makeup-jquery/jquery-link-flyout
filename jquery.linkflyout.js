@@ -1,7 +1,7 @@
 /**
  * @file converts a link + div, into a link + hidden button + flyout and handles all hide/show behaviour.
  * @author Ian McBurnie <ianmcburnie@hotmail.com>
- * @version 0.4.0
+ * @version 0.4.1
  * @requires jquery
  * @requires @ebay/jquery-mouse-exit
  * @requires @ebay/jquery-button-flyout
