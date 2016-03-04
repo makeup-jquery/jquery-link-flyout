@@ -3,6 +3,8 @@
 <p>
     <a href="https://travis-ci.org/ianmcburnie/jquery-link-flyout"><img src="https://api.travis-ci.org/ianmcburnie/jquery-link-flyout.svg?branch=master" alt="Build Status" /></a>
     <a href='https://coveralls.io/github/ianmcburnie/jquery-link-flyout?branch=master'><img src='https://coveralls.io/repos/ianmcburnie/jquery-link-flyout/badge.svg?branch=master&service=github' alt='Coverage Status' /></a>
+    <a href="https://david-dm.org/ianmcburnie/jquery-link-flyout"><img src="https://david-dm.org/ianmcburnie/jquery-link-flyout.svg" alt="Dependency status" /></a>
+    <a href="https://david-dm.org/ianmcburnie/jquery-link-flyout#info=devDependencies"><img src="https://david-dm.org/ianmcburnie/jquery-link-flyout/dev-status.svg" alt="devDependency status" /></a>
 </p>
 
 jQuery collection plugin that converts an anchor + div into an anchor + hidden focus button + overlay, and handles all hide/show behaviour.
