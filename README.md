@@ -1,4 +1,4 @@
-# @ebay/jquery-link-flyout
+# jquery-link-flyout
 
 <p>
     <a href="https://travis-ci.org/ianmcburnie/jquery-link-flyout"><img src="https://api.travis-ci.org/ianmcburnie/jquery-link-flyout.svg?branch=master" alt="Build Status" /></a>
@@ -20,7 +20,7 @@ This plugin is still in an experimental state, until it reaches v1.0.0 you must 
 ## Install
 
 ```js
-npm install @ebay/jquery-link-flyout
+npm install jquery-link-flyout
 ```
 
 ## Example
@@ -53,8 +53,8 @@ Markup after plugin:
 ## Dependencies
 
 * [jquery](https://jquery.com/)
-* [@ebay/jquery-mouse-exit](https://github.com/ianmcburnie/jquery-mouse-exit)
-* [@ebay/jquery-button-flyout](https://github.com/ianmcburnie/jquery-button-flyout)
+* [jquery-mouse-exit](https://github.com/ianmcburnie/jquery-mouse-exit)
+* [jquery-button-flyout](https://github.com/ianmcburnie/jquery-button-flyout)
 
 ## Development
 

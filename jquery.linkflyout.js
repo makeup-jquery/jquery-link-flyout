@@ -3,8 +3,8 @@
  * @author Ian McBurnie <ianmcburnie@hotmail.com>
  * @version 0.4.1
  * @requires jquery
- * @requires @ebay/jquery-mouse-exit
- * @requires @ebay/jquery-button-flyout
+ * @requires jquery-mouse-exit
+ * @requires jquery-button-flyout
  */
 
 (function ($, window, document, undefined) {
