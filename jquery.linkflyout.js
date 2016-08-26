@@ -1,7 +1,7 @@
 /**
  * @file converts a link + div, into a link + hidden button + flyout and handles all hide/show behaviour.
  * @author Ian McBurnie <ianmcburnie@hotmail.com>
- * @version 0.6.0
+ * @version 0.6.1
  * @requires jquery
  * @requires jquery-mouse-exit
  * @requires jquery-button-flyout
@@ -13,18 +13,18 @@
     */
     $.fn.linkFlyout = function linkFlyout() {
         return this.each(function onEach() {
-            var $this = $(this);
-            var $link = $this.find('> a');
-            var $overlay = $this.find('> div:last-child');
+            var $widget = $(this);
+            var $link = $widget.find('.flyout__anchor, > a');
+            var $overlay = $widget.find('.flyout__overlay, > *:last-child');
             var $toggleButton;
 
             // assign next id in sequence if one doesn't already exist
-            $this.nextId('link-flyout');
+            $widget.nextId('link-flyout');
 
-            $toggleButton = $('<button type="button">Expand ' + $link.text() + '</button>');
+            $toggleButton = $('<button class="flyout__button" type="button">Expand ' + $link.text() + '</button>');
             $toggleButton.insertAfter($link);
 
-            $this.buttonFlyout({focusManagement: true});
+            $widget.buttonFlyout({focusManagement: true});
 
             // setup mouseExit custom event plugin
             $overlay.mouseExit();
@@ -37,10 +37,10 @@
             });
 
             // setup mouse hover/out behaviour
-            $this.on('mouseenter', function onLinkMouseEnter(e) {
+            $widget.on('mouseenter', function onLinkMouseEnter(e) {
                 if ($toggleButton.attr('aria-expanded') === 'false') {
                     $toggleButton.click();
-                    $this.one('mouseExit', function onOverlayMouseExit() {
+                    $widget.one('mouseExit', function onOverlayMouseExit() {
                         $toggleButton.click();
                     });
                 }

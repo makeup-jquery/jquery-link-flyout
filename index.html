@@ -7,7 +7,7 @@
             .flyout {
                 position: relative;
             }
-            .flyout > div {
+            .flyout__overlay {
                 background-color: LightYellow;
                 border: 1px solid #eee;
                 display: none;
@@ -15,10 +15,11 @@
                 position: fixed;
                 z-index: 1;
             }
-            .flyout > div[aria-hidden=false] {
+            .flyout__button[aria-expanded=true] ~ .flyout__overlay {
                 display: block;
             }
-            .flyout > a + button {
+            .flyout__anchor + .flyout__button {
+                background-color: LightYellow;
                 position: absolute;
                 clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
                 clip: rect(1px, 1px, 1px, 1px);
@@ -28,11 +29,11 @@
                 width: 1px;
                 overflow: hidden;
             }
-            .flyout > a + button:focus {
+            .flyout__anchor + .flyout__button:focus {
                 clip: auto;
                 height: auto;
                 left: 0;
-                width:auto;
+                width: auto;
                 bottom: -2.5em;
                 z-index: 1;
             }
@@ -44,8 +45,8 @@
             <p>Tab to hidden button after each link, then activate button to view flyout.</p>
 
             <span class="flyout">
-                <a href="#">Toggle Flyout 1</a>
-                <div>
+                <a class="flyout__anchor" href="http://www.ebay.com">Toggle Flyout 1</a>
+                <div class="flyout__overlay">
                     <h3>Any kind of HTML control can go inside of a flyout...</h3>
                     <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
                     <p>A button: <button>Click Me</button></p>
@@ -55,8 +56,8 @@
                 </div>
             </span>
             <span class="flyout">
-                <a href="#">Toggle Flyout 2</a>
-                <div>
+                <a class="flyout__anchor" href="http://www.ebay.com">Toggle Flyout 2</a>
+                <div class="flyout__overlay">
                     <h3>Any kind of HTML control can go inside of a flyout...</h3>
                     <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
                     <p>A button: <button>Click Me</button></p>
