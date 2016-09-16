@@ -1,7 +1,7 @@
 {
   "name": "jquery-link-flyout",
   "description": "jQuery collection plugin that converts a link + div, into a link + hidden button + flyout and handles all hide/show behaviour",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "scripts": {
     "start": "karma start --autoWatch true --singleRun false",
     "test": "karma start --autoWatch false --singleRun true",
