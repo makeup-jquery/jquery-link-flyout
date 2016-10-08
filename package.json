@@ -3,15 +3,19 @@
   "description": "jQuery collection plugin that converts a link + div, into a link + hidden button + flyout and handles all hide/show behaviour",
   "version": "0.6.2",
   "scripts": {
-    "start": "karma start --autoWatch true --singleRun false",
+    "start": "npm run lasso && parallelshell 'npm run server' 'npm run watch'",
+    "tdd": "karma start --autoWatch true --singleRun false",
     "test": "karma start --autoWatch false --singleRun true",
     "prepublish": "npm run clean && npm run lint && npm run test && npm run build",
-    "build": "npm run jsdoc && npm run minify",
-    "clean": "rimraf jsdoc test_reports *.min.js lint.txt",
+    "build": "npm run jsdoc && npm run minify && npm run lasso",
+    "clean": "rimraf jsdoc test_reports .cache build docs/browser.js.* lint.txt",
     "fix": "eslint jquery.linkflyout.js --fix",
     "jsdoc": "jsdoc jquery.linkflyout.js -d jsdoc",
+    "lasso": "lasso browser.json --output-dir docs --minify",
     "lint": "eslint jquery.linkflyout.js > lint.txt",
-    "minify": "jsmin -o jquery.linkflyout.min.js jquery.linkflyout.js"
+    "minify": "jsmin -o jquery.linkflyout.min.js jquery.linkflyout.js",
+    "server": "browser-sync start -s --ss docs --index docs/index.html --files docs ",
+    "watch": "onchange jquery.linkflyout.js -- npm run lasso"
   },
   "pre-commit": "prepublish",
   "author": "Ian McBurnie <ianmcburnie@hotmail.com>",
@@ -32,6 +36,7 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2",
     "coveralls": "^2",
     "eslint": "^3",
     "eslint-config-google": "~0.6",
@@ -48,6 +53,9 @@
     "karma-jasmine": "^1",
     "karma-junit-reporter": "^1",
     "karma-phantomjs-launcher": "^1",
+    "lasso-cli": "^2",
+    "onchange": "^3",
+    "parallelshell": "^2",
     "phantomjs-prebuilt": "^2",
     "pre-commit": "^1",
     "rimraf": "^2"
