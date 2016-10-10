@@ -1,7 +1,7 @@
 /**
- * @file converts a link + div, into a link + hidden button + flyout and handles all hide/show behaviour.
+ * @file jQuery plugin that creates the basic interactivity for a link that expands and collapses a flyout
  * @author Ian McBurnie <ianmcburnie@hotmail.com>
- * @version 0.6.2
+ * @version 0.7.0
  * @requires jquery
  * @requires jquery-mouse-exit
  * @requires jquery-button-flyout
@@ -11,37 +11,51 @@
     * @method "jQuery.fn.linkFlyout"
     * @return {Object} chainable jQuery class
     */
-    $.fn.linkFlyout = function linkFlyout() {
+    $.fn.linkFlyout = function linkFlyout(options) {
+        options = $.extend({
+            autoCollapse: true,
+            debug: false,
+            focusManagement: 'none',
+            anchorSelector: '.flyout__anchor, > a',
+            overlaySelector: '.flyout__overlay'
+        }, options);
         return this.each(function onEach() {
             var $widget = $(this);
-            var $link = $widget.find('.flyout__anchor, > a');
-            var $overlay = $widget.find('.flyout__overlay, > *:last-child');
+            var $link = $widget.find(options.anchorSelector);
+            var $overlay = $widget.find(options.overlaySelector);
             var $toggleButton;
 
             // assign next id in sequence if one doesn't already exist
             $widget.nextId('link-flyout');
 
+            // append a stealth button after the link
             $toggleButton = $('<button class="flyout__button" type="button">Expand ' + $link.text() + '</button>');
             $toggleButton.insertAfter($link);
 
-            $widget.buttonFlyout({focusManagement: true});
+            $widget.buttonFlyout({
+                autoCollapse: options.autoCollapse,
+                debug: options.debug,
+                focusManagement: options.focusManagement
+            });
 
             // setup mouseExit custom event plugin
             $overlay.mouseExit();
 
-            // close flyout when shift-tabbing out of flyout onto button
-            $toggleButton.on('focus', function onToggleButtonFocus(e) {
-                if ($toggleButton.attr('aria-expanded') === 'true') {
-                    $toggleButton.click();
-                }
-            });
+            // should flyout collapse when shift-tabbing back to button?
+            if (options.autoCollapse === true) {
+                $toggleButton.on('focus', function onToggleButtonFocus(e) {
+                    if ($toggleButton.attr('aria-expanded') === 'true') {
+                        $toggleButton.attr('aria-expanded', 'false');
+                    }
+                });
+            }
 
             // setup mouse hover/out behaviour
             $widget.on('mouseenter', function onLinkMouseEnter(e) {
                 if ($toggleButton.attr('aria-expanded') === 'false') {
-                    $toggleButton.click();
+                    $toggleButton.attr('aria-expanded', 'true');
                     $widget.one('mouseExit', function onOverlayMouseExit() {
-                        $toggleButton.click();
+                        $toggleButton.attr('aria-expanded', 'false');
                     });
                 }
             });

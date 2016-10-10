@@ -42,9 +42,9 @@
     "eslint-config-google": "~0.6",
     "jasmine-core": "^2",
     "jquery": ">=1.11",
-    "jquery-button-flyout": ">=0.7.2",
+    "jquery-button-flyout": "~0.8",
     "jquery-mouse-exit": "~0.2.0",
-    "jquery-migrate": "^1.4.1",
+    "jquery-migrate": "^3",
     "jsdoc": "^3",
     "jsmin": "^1",
     "karma": "^1",
@@ -62,7 +62,7 @@
   },
   "peerDependencies": {
     "jquery": ">=1.11",
-    "jquery-button-flyout": ">=0.7.2",
+    "jquery-button-flyout": "~0.8",
     "jquery-mouse-exit": "~0.2"
   },
   "publishConfig": {

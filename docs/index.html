@@ -10,32 +10,35 @@
             .flyout__overlay {
                 background-color: LightYellow;
                 border: 1px solid #eee;
+                left: 0;
                 display: none;
-                padding: 1rem;
-                position: fixed;
+                padding: 0.5rem 1rem;
+                position: absolute;
+                width: 500px;
                 z-index: 1;
             }
-            .flyout__button[aria-expanded=true] ~ .flyout__overlay {
+            .flyout__button[aria-expanded=true] ~ .flyout__live-region > .flyout__overlay {
                 display: block;
             }
             .flyout__anchor + .flyout__button {
-                background-color: LightYellow;
+                background-color: #ddd;
+                box-sizing: border-box;
                 position: absolute;
                 clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
                 clip: rect(1px, 1px, 1px, 1px);
-                padding: 0.2em 0.3em;
                 border: 0;
                 height: 1px;
+                left: 0;
+                padding: 0;
                 width: 1px;
                 overflow: hidden;
+                z-index: 1;
             }
             .flyout__anchor + .flyout__button:focus {
                 clip: auto;
                 height: auto;
-                left: 0;
+                bottom: 100%;
                 width: auto;
-                bottom: -2.5em;
-                z-index: 1;
             }
         </style>
     </head>
@@ -43,34 +46,35 @@
         <div role="main">
             <h1>Demo: jquery-link-flyout</h1>
             <p>Tab to hidden button after each link, then activate button to view flyout.</p>
-
             <span class="flyout">
                 <a class="flyout__anchor" href="http://www.ebay.com">Toggle Flyout 1</a>
-                <div class="flyout__overlay">
-                    <h3>Any kind of HTML control can go inside of a flyout...</h3>
-                    <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
-                    <p>A button: <button>Click Me</button></p>
-                    <p>An input: <input type="text" aria-label="Dummy textbox"></p>
-                    <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
-                    <p><strong>...but avoid ARIA widgets such as tabs and carousels!</strong></p>
-                </div>
+                <span class="flyout__live-region" aria-live="off">
+                    <div class="flyout__overlay">
+                        <p>Any kind of HTML control can go inside of a flyout...</p>
+                        <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
+                        <p>A button: <button type="button">Click Me</button></p>
+                        <p>An input: <input type="text" aria-label="Dummy textbox"></p>
+                        <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+                    </div>
+                </span>
             </span>
             <span class="flyout">
                 <a class="flyout__anchor" href="http://www.ebay.com">Toggle Flyout 2</a>
-                <div class="flyout__overlay">
-                    <h3>Any kind of HTML control can go inside of a flyout...</h3>
-                    <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
-                    <p>A button: <button>Click Me</button></p>
-                    <p>An input: <input type="text" aria-label="Dummy textbox"></p>
-                    <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
-                    <p><strong>...but avoid ARIA widgets such as tabs and carousels!</strong></p>
-                </div>
+                <span class="flyout__live-region" aria-live="off">
+                    <div class="flyout__overlay">
+                        <p>Any kind of HTML control can go inside of a flyout...</p>
+                        <p>A link: <a href="http://www.ebay.com">www.ebay.com</a></p>
+                        <p>A button: <button type="button">Click Me</button></p>
+                        <p>An input: <input type="text" aria-label="Dummy textbox"></p>
+                        <p>A checkbox: <input type="checkbox" aria-label="Dummy checkbox"></p>
+                    </div>
+                </span>
             </span>
         </div>
         <script src="browser.js"></script>
         <script>
             $(function() {
-                $('.flyout').linkFlyout();
+                $('.flyout').linkFlyout({debug: true});
             });
         </script>
     </body>
