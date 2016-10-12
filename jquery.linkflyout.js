@@ -1,7 +1,8 @@
 /**
  * @file jQuery plugin that creates the basic interactivity for a link that expands and collapses a flyout
+ * @deprecated since version 0.7.1. Please use jquery-click-flyout, jquery-hover-flyout or jquery-focus-flyout instead.
  * @author Ian McBurnie <ianmcburnie@hotmail.com>
- * @version 0.7.0
+ * @version 0.7.1
  * @requires jquery
  * @requires jquery-mouse-exit
  * @requires jquery-button-flyout

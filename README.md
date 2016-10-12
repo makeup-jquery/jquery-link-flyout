@@ -13,9 +13,15 @@ jQuery plugin that creates the basic interactivity for a link that expands and c
 $(selector).linkFlyout(options);
 ```
 
-## Experimental
+## Deprecated
 
-This plugin is still in an experimental state, until it reaches v1.0.0 you must consider all minor releases as breaking changes. Patch releases may introduce new features, but will be backwards compatible.
+*This plugin is deprecated*.
+
+Please use any of the following plugins instead:
+
+* <a href="https://github.com/ianmcburnie/jquery-click-flyout">jquery-click-flyout</a>
+* <a href="https://github.com/ianmcburnie/jquery-hover-flyout">jquery-hover-flyout</a>
+* <a href="https://github.com/ianmcburnie/jquery-focus-flyout">jquery-focus-flyout</a>
 
 ## Install
 
